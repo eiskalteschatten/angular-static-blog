@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { BlogComponent } from './blog.component';
-
-import { BlogResolver } from '../../shared/resolvers/blog.resolver';
+import { BlogResolver } from './blog.resolver';
 
 const routes: Routes = [
   {
