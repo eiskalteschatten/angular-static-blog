@@ -1,3 +1,9 @@
 <main class="container mx-auto header-gap">
   Blog
+
+  <div>
+    @for (post of posts; track post.id) {
+      <div>{{ post.title.rendered }}</div>
+    }
+  </div>
 </main>
