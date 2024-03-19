@@ -22,7 +22,6 @@ export class RouteLoaderComponent {
     this.router.events.subscribe((event) => {
       if (isPlatformBrowser(this.platformId)) {
         if (event instanceof NavigationStart) {
-          console.log('navigation start');
           if (this.widthInterval) {
             clearInterval(this.widthInterval);
           }
