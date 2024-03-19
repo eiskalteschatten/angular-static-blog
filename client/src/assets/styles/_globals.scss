@@ -13,6 +13,7 @@
   --border-radius: #{$borderRadius};
   --hover-background-color: #{$lightHoverBgColor};
   --active-background-color: #{$lightActiveBgColor};
+  --animation-speed: #{$animationSpeed};
 }
 
 @media (prefers-color-scheme: dark) {
