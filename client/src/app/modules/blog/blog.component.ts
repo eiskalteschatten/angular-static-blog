@@ -1,27 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
-import { BlogService } from '../../shared/services/blog.service';
 import { WordPressPost } from '../../shared/types/blog.interface';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
   imports: [],
-  providers: [BlogService, HttpClientModule],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.scss',
 })
 export class BlogComponent implements OnInit {
+  posts: WordPressPost[] = [];
+
   constructor(
-    private blogService: BlogService
+    private activedRoute: ActivatedRoute
   ) {}
 
   ngOnInit() {
-    this.blogService.getPosts();
-  }
-
-  get posts(): WordPressPost[] {
-    return this.blogService.posts;
+    this.activedRoute.data.subscribe(({ posts }) => {
+      this.posts = posts;
+    });
   }
 }
