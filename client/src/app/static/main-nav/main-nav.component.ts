@@ -7,7 +7,7 @@ import { NavigationEnd, Router, RouterModule } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './main-nav.component.html',
-  styleUrl: './main-nav.component.scss'
+  styleUrl: './main-nav.component.scss',
 })
 export class MainNavComponent {
   currentRoute = '/';

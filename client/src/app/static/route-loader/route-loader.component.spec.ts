@@ -8,9 +8,9 @@ describe('RouteLoaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouteLoaderComponent]
+      imports: [RouteLoaderComponent],
     })
-    .compileComponents();
+      .compileComponents();
     
     fixture = TestBed.createComponent(RouteLoaderComponent);
     component = fixture.componentInstance;

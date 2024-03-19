@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { WordPressPost } from '../types/blog.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BlogService {
   private postsUrl = 'https://blog.alexseifert.com/wp-json/wp/v2/posts?per_page=3&status=publish';

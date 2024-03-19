@@ -10,7 +10,7 @@ import { WordPressPost } from '../../shared/types/blog.interface';
   imports: [],
   providers: [BlogService, HttpClientModule],
   templateUrl: './blog.component.html',
-  styleUrl: './blog.component.scss'
+  styleUrl: './blog.component.scss',
 })
 export class BlogComponent implements OnInit {
   constructor(

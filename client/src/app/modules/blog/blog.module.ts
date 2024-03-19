@@ -8,7 +8,7 @@ import { BlogRoutingModule } from './blog-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    BlogRoutingModule
-  ]
+    BlogRoutingModule,
+  ],
 })
 export class BlogModule { }

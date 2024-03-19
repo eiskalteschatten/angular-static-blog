@@ -17,6 +17,9 @@
     "promise",
     "import"
   ],
+  "globals": {
+    "NodeJS": true
+  },
   "overrides": [
     {
       "files": [

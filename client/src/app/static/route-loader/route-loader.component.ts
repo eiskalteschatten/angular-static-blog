@@ -7,7 +7,7 @@ import { NavigationEnd, NavigationStart, Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './route-loader.component.html',
-  styleUrl: './route-loader.component.scss'
+  styleUrl: './route-loader.component.scss',
 })
 export class RouteLoaderComponent {
   pageIsLoading = false;
@@ -17,7 +17,7 @@ export class RouteLoaderComponent {
 
   constructor(
     private router: Router,
-    @Inject(PLATFORM_ID) private platformId: Object
+    @Inject(PLATFORM_ID) private platformId: object
   ) {
     this.router.events.subscribe((event) => {
       if (isPlatformBrowser(this.platformId)) {
