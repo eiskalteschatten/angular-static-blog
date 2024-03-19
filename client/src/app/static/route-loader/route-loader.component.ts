@@ -27,6 +27,7 @@ export class RouteLoaderComponent {
           }
 
           this.pageIsLoading = true;
+          this.barWidth = 50;
 
           this.widthInterval = setInterval(() => {
             this.barWidth = this.barWidth + 50;
@@ -34,7 +35,7 @@ export class RouteLoaderComponent {
             if (this.barWidth > screen.width) {
               clearInterval(this.widthInterval);
             }
-          }, 1000);
+          }, 500);
         }
         else if (event instanceof NavigationEnd) {
           this.pageIsLoading = false;
