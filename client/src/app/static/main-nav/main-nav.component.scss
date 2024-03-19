@@ -1,0 +1,17 @@
+.nav-link {
+  color: var(--color);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 6px 12px;
+  border-radius: var(--border-radius);
+  transition: background-color 175ms;
+  font-weight: 600;
+
+  &:hover {
+    background-color: var(--hover-background-color);
+  }
+
+  &:active {
+    background-color: var(--active-background-color);
+  }
+}
