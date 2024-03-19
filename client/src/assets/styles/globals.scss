@@ -1,0 +1,69 @@
+@import "./variables";
+@import "./mixins";
+
+:root {
+  --background-color: #{$lightBg};
+  --background-secondary-color: #{$lightSecondaryBg};
+  --opposite-background-color: #{$darkBg};
+  --color: #{$lightColor};
+  --opposite-color: #{$darkColor};
+  --primary-color: #{$primaryColor};
+  --border-color: #{$lightBorderColor};
+  --border-lighter-color: #{$lightBorderLighterColor};
+  --border-radius: #{$borderRadius};
+  --hover-background-color: #{$lightHoverBgColor};
+  --active-background-color: #{$lightActiveBgColor};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #{$darkBg};
+    --background-secondary-color: #{$darkSecondaryBg};
+    --opposite-background-color: #{$lightBg};
+    --color: #{$darkColor};
+    --opposite-color: #{$lightColor};
+    --border-color: #{$darkBorderColor};
+    --border-lighter-color: #{$darkBorderLighterColor};
+    --hover-background-color: #{$darkHoverBgColor};
+    --active-background-color: #{$darkActiveBgColor};
+  }
+}
+
+html, body {
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  &.mobile-menu-open {
+    overflow: hidden;
+  }
+}
+
+a {
+  color: $paletteBlue;
+  transition: color 200ms;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--color);
+  }
+
+  &.primary {
+    color: var(--primary-color);
+
+    &:hover {
+      color: var(--color);
+    }
+  }
+
+  &.body-color {
+    @include hoverYellowLink;
+  }
+}
+
+p {
+  margin: 20px 0;
+}
