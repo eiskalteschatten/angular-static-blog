@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
-import { LogoComponent } from '../../shared/components/logo/logo.component';
 import { MainNavComponent } from '../main-nav/main-nav.component';
+
+import { LogoComponent } from '@/shared/components/logo/logo.component';
 
 @Component({
   selector: 'app-header',
