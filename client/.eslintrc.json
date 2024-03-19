@@ -74,10 +74,10 @@
         "computed-property-spacing": ["error", "never"],
         "max-lines-per-function": ["error", 500],
         "comma-dangle": ["error", {
-          "arrays": "always",
-          "objects": "always",
-          "imports": "always",
-          "exports": "always",
+          "arrays": "always-multiline",
+          "objects": "always-multiline",
+          "imports": "always-multiline",
+          "exports": "always-multiline",
           "functions": "never"
         }],
         "promise/catch-or-return": "error",
