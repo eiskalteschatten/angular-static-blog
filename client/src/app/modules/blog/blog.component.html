@@ -4,6 +4,12 @@
   <div>
     @for (post of posts; track post.id) {
       <div>{{ post.title }}</div>
+
+      @if (post.categories) {
+        @for (category of post.categories; track category.categories_id.slug) {
+          <div>{{ category.categories_id.name }}</div>
+        }
+      }
     }
   </div>
 </main>

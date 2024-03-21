@@ -8,7 +8,9 @@ export interface BlogPost {
   'date_published': string;
   'user_created': number;
   'user_updated': number;
-  categories?: BlogCategory[];
+  categories?: {
+    'categories_id': BlogCategory;
+  }[];
   tags?: string[];
 }
 

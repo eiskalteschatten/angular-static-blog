@@ -31,8 +31,10 @@ export class BlogService {
           user_updated
           tags
           categories {
-            name
-            slug
+            categories_id {
+              name
+              slug
+            }
           }
         }
       }
