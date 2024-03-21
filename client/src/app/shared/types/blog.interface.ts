@@ -1,13 +1,17 @@
-export interface WordPressPost {
+export interface BlogPost {
   id: number;
-  jetpack_featured_media_url: string;
-  link: string;
-  title: {
-    rendered: string;
-  };
-  excerpt: {
-    rendered: string;
-  };
-  date: string;
-  modified: string;
+  title: string;
+  slug: string;
+  post: string;
+  status: string;
+  'date_published': string;
+  'user_created': number;
+  'user_updated': number;
+  categories: BlogCategory[];
+  tags: string[];
+}
+
+export interface BlogCategory {
+  name: string;
+  slug: string;
 }

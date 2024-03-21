@@ -1,21 +1,34 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
-import { WordPressPost } from '../types/blog.interface';
+import { BlogPost } from '../types/blog.interface';
+
+import { directusClient } from '@/directusClient';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlogService {
-  private postsUrl = 'https://blog.alexseifert.com/wp-json/wp/v2/posts?per_page=3&status=publish';
-  private postsUrlWithFields = `${this.postsUrl}&_fields[]=id&_fields[]=title&_fields[]=excerpt&_fields[]=link&_fields[]=jetpack_featured_media_url&_fields[]=date&_fields[]=modified`;
+  async getPosts(): Promise<BlogPost[]> {
+    const blogPosts = await directusClient.query<BlogPost[]>(`
+      query {
+        blogPosts {
+          id
+          title
+          slug
+          post
+          status
+          date_published
+          user_created
+          user_updated
+          categories {
+            name
+            slug
+          }
+          tags
+        }
+      }
+    `);
 
-  constructor(
-    private http: HttpClient
-  ) { }
-
-  getPosts(): Observable<WordPressPost[]> {
-    return this.http.get<WordPressPost[]>(this.postsUrlWithFields);
+    return blogPosts;
   }
 }
