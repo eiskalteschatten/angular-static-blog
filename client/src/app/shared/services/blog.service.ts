@@ -21,9 +21,31 @@ export class BlogService {
     const { blogPosts } = await directusClient.query<BlogPostSchema>(`
     query GetBlogPosts {
         blogPosts(sort: ["-date_published"], filter: { status: { _eq: "published" } }) {
-          id
           title
-          status
+          slug
+          excerpt
+          featuredImage
+          date_published
+          user_created
+          categories {
+            categories_id {
+              name
+              slug
+            }
+          }
+        }
+      }
+    `);
+
+    return blogPosts;
+  }
+
+  async getSinglePost(): Promise<BlogPost[]> {
+    // TODO: update everything here
+    const { blogPosts } = await directusClient.query<BlogPostSchema>(`
+    query GetBlogPosts {
+        blogPosts {
+          title
           slug
           post
           excerpt
