@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '@environment';
 
 import { BlogPost } from '@/shared/types/blog.interface';
 import { PageTitleComponent } from '@/shared/components/page-title/page-title.component';
@@ -23,5 +24,9 @@ export class BlogPostComponent implements OnInit {
     this.activedRoute.data.subscribe(({ post }) => {
       this.post = post;
     });
+  }
+
+  get featuredImageUrl(): string | undefined {
+    return this.post?.featuredImage ? `${environment.directus.url}/assets/${this.post.featuredImage}` : undefined;
   }
 }

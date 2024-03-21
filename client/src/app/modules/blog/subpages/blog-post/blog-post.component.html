@@ -4,5 +4,13 @@
 @else {
   <main class="container mx-auto header-gap">
     <app-page-title>{{ post.title }}</app-page-title>
+
+    @if (post.featuredImage) {
+      <img
+        class="w-full h-96 object-cover object-center rounded-lg"
+        [src]="featuredImageUrl"
+        [alt]="post.title"
+      />
+    }
   </main>
 }
