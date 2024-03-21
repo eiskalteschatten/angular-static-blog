@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from '@environment';
 
 import { BlogPost } from '@/shared/types/blog.interface';
 import { PageTitleComponent } from '@/shared/components/page-title/page-title.component';
@@ -30,7 +31,7 @@ export class BlogComponent implements OnInit {
     return this.posts.map((post) => ({
       title: post.title,
       excerpt: post.excerpt,
-      image: post.featuredImage,
+      image: `${environment.directus.url}/assets/${post.featuredImage}`,
       link: `/blog/${post.slug}`,
       date: new Date(post.date_published),
     }));
