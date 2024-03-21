@@ -1,8 +1,8 @@
-<main class="container mx-auto header-gap">
-  @if (!post) {
-    no post, do something
-  }
-  @else {
+@if (!post) {
+  <app-page-not-found></app-page-not-found>
+}
+@else {
+  <main class="container mx-auto header-gap">
     <app-page-title>{{ post.title }}</app-page-title>
-  }
-</main>
+  </main>
+}

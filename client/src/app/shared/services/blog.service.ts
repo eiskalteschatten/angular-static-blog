@@ -44,7 +44,7 @@ export class BlogService {
     return blogPosts;
   }
 
-  async getSinglePost(slug: string): Promise<BlogPost> {
+  async getSinglePost(slug: string): Promise<BlogPost | undefined> {
     const { blogPosts } = await directusClient.query<BlogPostSchema>(`
       query GetBlogPost {
         blogPosts(filter: { slug: { _eq: "${slug}" } }) {
@@ -66,8 +66,6 @@ export class BlogService {
         }
       }
     `);
-
-    // TODO: what happens if the post can't be found?
 
     return blogPosts[0];
   }

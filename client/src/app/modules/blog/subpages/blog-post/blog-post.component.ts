@@ -3,11 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 
 import { BlogPost } from '@/shared/types/blog.interface';
 import { PageTitleComponent } from '@/shared/components/page-title/page-title.component';
+import { PageNotFoundComponent } from '@/shared/components/page-not-found/page-not-found.component';
 
 @Component({
   selector: 'app-blog-post',
   standalone: true,
-  imports: [PageTitleComponent],
+  imports: [PageTitleComponent, PageNotFoundComponent],
   templateUrl: './blog-post.component.html',
   styleUrl: './blog-post.component.scss',
 })
