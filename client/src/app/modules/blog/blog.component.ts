@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { WordPressPost } from '@/shared/types/blog.interface';
+import { BlogPost } from '@/shared/types/blog.interface';
 import { PageTitleComponent } from '@/shared/components/page-title/page-title.component';
 
 @Component({
@@ -12,7 +12,7 @@ import { PageTitleComponent } from '@/shared/components/page-title/page-title.co
   styleUrl: './blog.component.scss',
 })
 export class BlogComponent implements OnInit {
-  posts: WordPressPost[] = [];
+  posts: BlogPost[] = [];
 
   constructor(
     private activedRoute: ActivatedRoute
