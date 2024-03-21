@@ -72,3 +72,14 @@ p {
 .header-gap {
   margin-top: 25px;
 }
+
+.low-opacity-text {
+  opacity: .65;
+  transition: opacity 250ms;
+
+  &:hover {
+      opacity: 1;
+  }
+}
+
+@import "./contentTiles";

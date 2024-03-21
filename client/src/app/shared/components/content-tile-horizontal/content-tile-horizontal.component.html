@@ -1,24 +1,32 @@
 @if (content) {
-  <div class="my-10">
-    @if (content.image) {
-      <img [src]="content.image" alt="{{ content.title }}" />
-    }
-    @else {
-      <div>Image placeholder</div>
-    }
-
-    <h2>
-      <a [routerLink]="[content.link]">{{ content.title }}</a>
-    </h2>
-
-    <div>
-      {{ content.excerpt }}
+  <div class="my-12 flex gap-8">
+    <div class="image">
+      <a [routerLink]="[content.link]">
+        @if (content.image) {
+          <img [src]="content.image" alt="{{ content.title }}" class="content-tile-image">
+        }
+        @else {
+          <div>Image placeholder</div>
+        }
+      </a>
     </div>
 
-    @if (content.date) {
-      <div>
-        {{ formatDate(content.date) }}
+    <div>
+      <h3 class="title">
+        <a [routerLink]="[content.link]" class="body-color">{{ content.title }}</a>
+      </h3>
+
+      <div class="my-3 excerpt low-opacity-text">
+        {{ content.excerpt }}
       </div>
-    }
+
+      <div class="utilities uppercase low-opacity-text">
+        @if (content.date) {
+          <div>
+            {{ formatDate(content.date) }}
+          </div>
+        }
+      </div>
+    </div>
   </div>
 }
