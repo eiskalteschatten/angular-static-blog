@@ -2,14 +2,14 @@
   <app-page-title>Blog</app-page-title>
 
   <div>
-    @for (post of posts; track post.id) {
-      <div>{{ post.title }}</div>
+    @for (post of postsAsContentTileData; track $index) {
+      <app-content-tile-horizontal [content]="post"></app-content-tile-horizontal>
 
-      @if (post.categories) {
+      <!-- @if (post.categories) {
         @for (category of post.categories; track category.categories_id.slug) {
           <div>{{ category.categories_id.name }}</div>
         }
-      }
+      } -->
     }
   </div>
 </main>

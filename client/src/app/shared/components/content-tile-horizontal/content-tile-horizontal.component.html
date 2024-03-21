@@ -1,0 +1,24 @@
+@if (content) {
+  <div>
+    @if (content.image) {
+      <img [src]="content.image" alt="{{ content.title }}" />
+    }
+    @else {
+      <div>Image placeholder</div>
+    }
+
+    <h2>
+      <a [routerLink]="[content.link]">{{ content.title }}</a>
+    </h2>
+
+    <div>
+      {{ content.excerpt }}
+    </div>
+
+    @if (content.date) {
+      <div>
+        {{ formatDate(content.date) }}
+      </div>
+    }
+  </div>
+}
