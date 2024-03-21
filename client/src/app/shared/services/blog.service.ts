@@ -13,10 +13,11 @@ export class BlogService {
       query {
         blogPosts {
           id
+          status
           title
           slug
           post
-          status
+          excerpt
           date_published
           user_created
           user_updated

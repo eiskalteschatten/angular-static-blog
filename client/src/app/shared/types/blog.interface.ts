@@ -1,9 +1,10 @@
 export interface BlogPost {
   id: number;
+  status: string;
   title: string;
   slug: string;
   post: string;
-  status: string;
+  excerpt: string;
   'date_published': string;
   'user_created': number;
   'user_updated': number;
