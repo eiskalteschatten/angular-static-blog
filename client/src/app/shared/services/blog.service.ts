@@ -19,11 +19,11 @@ interface BlogCategorySchema {
 export class BlogService {
   async getAllPosts(): Promise<BlogPost[]> {
     const { blogPosts } = await directusClient.query<BlogPostSchema>(`
-      query GetBlogPosts {
-        blogPosts(sort: ["-date_published"]) {
+    query GetBlogPosts {
+        blogPosts(sort: ["-date_published"], filter: { status: { _eq: "published" } }) {
           id
-          status
           title
+          status
           slug
           post
           excerpt
