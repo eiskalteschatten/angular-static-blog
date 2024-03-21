@@ -4,12 +4,12 @@ export interface BlogPost {
   title: string;
   slug: string;
   post: string;
-  excerpt: string;
+  excerpt?: string;
   'date_published': string;
   'user_created': number;
   'user_updated': number;
-  categories: BlogCategory[];
-  tags: string[];
+  categories?: BlogCategory[];
+  tags?: string[];
 }
 
 export interface BlogCategory {
