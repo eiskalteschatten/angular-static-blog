@@ -31,7 +31,7 @@ export class BlogComponent implements OnInit {
     return this.posts.map((post) => ({
       title: post.title,
       excerpt: post.excerpt,
-      image: `${environment.directus.url}/assets/${post.featuredImage}`,
+      image: post.featuredImage ? `${environment.directus.url}/assets/${post.featuredImage}` : undefined,
       link: `/blog/${post.slug}`,
       date: new Date(post.date_published),
     }));
