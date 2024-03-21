@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { BlogPost } from '../types/blog.interface';
+import { BlogCategory, BlogPost } from '../types/blog.interface';
 
 import { directusClient } from '@/directusClient';
 
@@ -8,11 +8,15 @@ interface BlogPostSchema {
   blogPosts: BlogPost[];
 }
 
+interface BlogCategorySchema {
+  categories: BlogCategory[];
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class BlogService {
-  async getPosts(): Promise<BlogPost[]> {
+  async getAllPosts(): Promise<BlogPost[]> {
     const { blogPosts } = await directusClient.query<BlogPostSchema>(`
       query GetBlogPosts {
         blogPosts {
@@ -35,5 +39,18 @@ export class BlogService {
     `);
 
     return blogPosts;
+  }
+
+  async getAllCategories(): Promise<BlogCategory[]> {
+    const { categories } = await directusClient.query<BlogCategorySchema>(`
+      query GetBlogCategories {
+        categories {
+          name
+          slug
+        }
+      }
+    `);
+
+    return categories;
   }
 }

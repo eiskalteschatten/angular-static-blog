@@ -9,5 +9,5 @@ export const BlogResolver: ResolveFn<BlogPost[]> = (
   state: RouterStateSnapshot,
   blogService: BlogService = inject(BlogService)
 ): Promise<BlogPost[]> => {
-  return blogService.getPosts();
+  return blogService.getAllPosts();
 };
