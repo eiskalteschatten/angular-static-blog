@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NavigationEnd, Router } from '@angular/router';
 
 import { MobileMenuServiceService } from '@/shared/services/mobile-menu-service.service';
 
@@ -18,14 +19,21 @@ export class MobileMenuButtonComponent {
   shouldAnimateIcon = false;
 
   constructor(
-    private mobileMenuService: MobileMenuServiceService
-  ) {}
+    private mobileMenuService: MobileMenuServiceService,
+    private router: Router
+  ) {
+    this.router.events.subscribe(value => {
+      if (value instanceof NavigationEnd) {
+        this.icon = this.ICON_MENU;
+        this.shouldAnimateIcon = false;
+      }
+    });
+  }
 
   mobileMenuClick(): void {
     this.icon = this.icon === this.ICON_MENU ? this.ICON_CLOSE : this.ICON_MENU;
     this.shouldAnimateIcon = true;
     this.mobileMenuService.toggleMenu();
-
     setTimeout(() => this.shouldAnimateIcon = false, 500);
   }
 

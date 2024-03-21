@@ -1,0 +1,18 @@
+@import "../../../assets/styles/variables";
+
+.mobile-menu {
+  position: fixed;
+  z-index: 10000000;
+  height: calc(100% - #{$toolbarHeight});
+  width: 100%;
+  top: $toolbarHeight;
+  left: -100%;
+  background-color: var(--background-color);
+  overflow: auto;
+  padding: 15px 25px;
+  transition: left 350ms ease-in-out;
+
+  &.open {
+    left: 0;
+  }
+}
