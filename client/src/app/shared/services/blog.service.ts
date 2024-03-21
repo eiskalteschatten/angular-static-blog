@@ -5,6 +5,10 @@ import { directusClient } from '@/directusClient';
 import { BlogCategory, BlogPost } from '../types/blog.interface';
 
 
+interface BlogPostsSchema {
+  blogPosts: BlogPost[];
+}
+
 interface BlogPostSchema {
   blogPosts: BlogPost[];
 }
@@ -18,8 +22,8 @@ interface BlogCategorySchema {
 })
 export class BlogService {
   async getAllPosts(): Promise<BlogPost[]> {
-    const { blogPosts } = await directusClient.query<BlogPostSchema>(`
-    query GetBlogPosts {
+    const { blogPosts } = await directusClient.query<BlogPostsSchema>(`
+      query GetBlogPosts {
         blogPosts(sort: ["-date_published"], filter: { status: { _eq: "published" } }) {
           title
           slug
@@ -40,11 +44,10 @@ export class BlogService {
     return blogPosts;
   }
 
-  async getSinglePost(): Promise<BlogPost[]> {
-    // TODO: update everything here
+  async getSinglePost(slug: string): Promise<BlogPost> {
     const { blogPosts } = await directusClient.query<BlogPostSchema>(`
-    query GetBlogPosts {
-        blogPosts {
+      query GetBlogPost {
+        blogPosts(filter: { slug: { _eq: "${slug}" } }) {
           title
           slug
           post
@@ -64,7 +67,9 @@ export class BlogService {
       }
     `);
 
-    return blogPosts;
+    // TODO: what happens if the post can't be found?
+
+    return blogPosts[0];
   }
 
   async getAllCategories(): Promise<BlogCategory[]> {
