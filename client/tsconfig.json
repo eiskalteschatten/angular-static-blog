@@ -26,7 +26,7 @@
     "baseUrl": "./src",
     "paths": {
       "@/*": ["./app/*"],
-      "@environment": ["src/environments/environment.ts"]
+      "@environment": ["./environments/environment.ts"]
     }
   },
   "angularCompilerOptions": {
