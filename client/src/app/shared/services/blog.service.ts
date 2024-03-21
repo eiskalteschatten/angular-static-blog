@@ -20,7 +20,7 @@ export class BlogService {
   async getAllPosts(): Promise<BlogPost[]> {
     const { blogPosts } = await directusClient.query<BlogPostSchema>(`
       query GetBlogPosts {
-        blogPosts {
+        blogPosts(sort: ["-date_published"]) {
           id
           status
           title
