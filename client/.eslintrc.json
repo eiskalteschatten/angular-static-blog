@@ -92,17 +92,12 @@
             "newlines-between": "always",
             "pathGroups": [
               {
-                "pattern": "~/**",
+                "pattern": "@/**",
                 "group": "internal",
                 "position": "after"
               },
               {
-                "pattern": "~Testing/**",
-                "group": "internal",
-                "position": "after"
-              },
-              {
-                "pattern": "~environments/**",
+                "pattern": "@environment",
                 "group": "internal",
                 "position": "after"
               }

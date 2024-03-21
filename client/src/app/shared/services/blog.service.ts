@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 
+import { directusClient } from '@/directusClient';
+
 import { BlogCategory, BlogPost } from '../types/blog.interface';
 
-import { directusClient } from '@/directusClient';
 
 interface BlogPostSchema {
   blogPosts: BlogPost[];
