@@ -26,6 +26,10 @@ export class BlogService {
           user_created
           user_updated
           tags
+          categories {
+            name
+            slug
+          }
         }
       }
     `);
