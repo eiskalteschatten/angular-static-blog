@@ -1,0 +1,12 @@
+.image-placeholder {
+  background: var(--background-secondary-color);
+  color: var(--color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 100px;
+
+  .material-icons {
+    opacity: .15;
+  }
+}

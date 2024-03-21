@@ -6,7 +6,7 @@
           <img [src]="content.image" alt="{{ content.title }}" class="content-tile-image">
         }
         @else {
-          <div>Image placeholder</div>
+          <app-content-tile-image-placeholder></app-content-tile-image-placeholder>
         }
       </a>
     </div>
