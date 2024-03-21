@@ -26,6 +26,7 @@ export class BlogService {
           slug
           post
           excerpt
+          featuredImage
           date_published
           user_created
           user_updated
