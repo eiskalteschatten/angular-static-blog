@@ -1,4 +1,4 @@
 <div class="flex flex-col md:flex-row gap-3">
-  <a [routerLink]="['/']" class="nav-link" [ngClass]="{'active': currentRoute === '/'}">Home</a>
-  <a [routerLink]="['/blog']" class="nav-link" [ngClass]="{'active': currentRoute === '/blog'}">Blog</a>
+  <a [routerLink]="['/']" class="nav-link" [ngClass]="{ 'active': isActive('/') }">Home</a>
+  <a [routerLink]="['/blog']" class="nav-link" [ngClass]="{ 'active': isActive('/blog') }">Blog</a>
 </div>

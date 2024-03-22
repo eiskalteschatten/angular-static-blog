@@ -21,4 +21,10 @@ export class MainNavComponent {
       }
     });
   }
+
+  isActive(route: string): boolean {
+    return route === '/'
+      ? this.currentRoute === route
+      : this.currentRoute.includes(route.split('/')[1]);
+  }
 }
