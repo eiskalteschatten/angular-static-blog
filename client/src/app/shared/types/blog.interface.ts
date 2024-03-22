@@ -58,6 +58,7 @@ interface BlogCheckListItem {
     content?: string;
     text?: string;
     checked?: boolean;
+    items?: BlogCheckListItem[];
   }[];
   text?: string;
   checked?: boolean;
