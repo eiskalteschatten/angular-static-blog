@@ -2,7 +2,10 @@ export interface BlogPost {
   id: number;
   title: string;
   slug: string;
-  post: BlogPostBlock[];
+  post: {
+    time: number;
+    blocks: BlogPostBlock[];
+  };
   excerpt?: string;
   featuredImage?: string;
   'date_published': string;
