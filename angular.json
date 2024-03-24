@@ -40,6 +40,9 @@
             },
             "ssr": {
               "entry": "server.ts"
+            },
+            "loader": {
+              ".md": "text"
             }
           },
           "configurations": {

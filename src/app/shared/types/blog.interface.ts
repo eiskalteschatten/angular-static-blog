@@ -11,6 +11,11 @@ export interface BlogPostMetaData {
   metaDescription: string;
 }
 
+export interface BlogPost {
+  metaData: BlogPostMetaData;
+  body: string;
+}
+
 // TODO: expand this as necessary
 export interface BlogCategory {
   name: string;
