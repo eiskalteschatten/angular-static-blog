@@ -3,87 +3,17 @@
 }
 @else {
   <main class="container mx-auto header-gap">
-    <app-page-title>{{ post.title }}</app-page-title>
+    <app-page-title>{{ post.metaData.title }}</app-page-title>
 
-    @if (post.featuredImage) {
+    @if (post.metaData.titleImage) {
       <img
         class="w-full h-96 object-cover object-center rounded-lg"
-        [src]="featuredImageUrl"
-        [alt]="post.title"
+        [src]="post.metaData.titleImage"
+        [alt]="post.metaData.title"
       />
     }
 
     <div class="mt-4">
-      @for (block of post.post.blocks; track block.id) {
-        @switch (block.type) {
-          @case ('header') {
-            @switch (block.data.level) {
-              @case (1) {
-                <h1 class="text-4xl font-bold">{{ block.data.text }}</h1>
-              }
-              @case (2) {
-                <h2 class="text-3xl font-bold">{{ block.data.text }}</h2>
-              }
-              @case (3) {
-                <h3 class="text-2xl font-bold">{{ block.data.text }}</h3>
-              }
-              @case (4) {
-                <h4 class="text-xl font-bold">{{ block.data.text }}</h4>
-              }
-              @case (5) {
-                <h5 class="text-lg font-bold">{{ block.data.text }}</h5>
-              }
-              @case (6) {
-                <h6 class="text-base font-bold">{{ block.data.text }}</h6>
-              }
-            }
-          }
-          @case ('code') {
-            <div [innerHTML]="block.data.text"></div>
-          }
-          @case ('quote') {
-            <div [innerHTML]="block.data.text"></div>
-            <div [innerHTML]="block.data.caption"></div>
-          }
-          @case ('image') {
-            <img
-              [src]="block.data.file?.url"
-              [alt]="block.data.file?.title"
-            />
-            <div [innerHTML]="block.data.caption"></div>
-          }
-          @case ('nestedlist') {
-            <!-- TODO: recursive lists -->
-            @switch (block.data.style) {
-              @case ('ordered') {
-                <ol>
-                  @for (item of block.data.items; track $index) {
-                    <li [innerHTML]="item.content"></li>
-                  }
-                </ol>
-              }
-              @default {
-                <ul>
-                  @for (item of block.data.items; track $index) {
-                    <li [innerHTML]="item.content"></li>
-                  }
-                </ul>
-              }
-            }
-          }
-          @case ('checklist') {
-            <!-- TODO: show checkboxes -->
-            <ul>
-              @for (item of block.data.items; track $index) {
-                <li [innerHTML]="item.text"></li>
-              }
-            </ul>
-          }
-          @default {
-            <div [innerHTML]="block.data.text"></div>
-          }
-        }
-      }
     </div>
   </main>
 }

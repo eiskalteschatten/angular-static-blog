@@ -1,15 +1,24 @@
 import { Injectable } from '@angular/core';
 
-import { BlogCategory, BlogPost } from '../types/blog.interface';
+import { BlogPost, BlogPostMetaData, BlogCategory } from '@/shared/types/blog.interface';
+import blogPostIds from '@/data/blog/posts';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class BlogService {
-  async getAllPosts(): Promise<BlogPost[]> {
-    const blogPosts: BlogPost[] = [];
-    return blogPosts;
+  async getAllBlogPostMetaData(): Promise<BlogPostMetaData[]> {
+    const allPostsData: BlogPostMetaData[] = [];
+
+    for (const blogPostId of blogPostIds) {
+      const metaData = await import (`../../data/blog/posts/${blogPostId}/meta.json`);
+      allPostsData.push(metaData);
+    }
+
+    allPostsData.sort((a, b) => a.publishedDate > b.publishedDate ? -1 : 1);
+
+    return allPostsData;
   }
 
   async getSinglePost(slug: string): Promise<BlogPost | undefined> {

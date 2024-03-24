@@ -1,13 +1,13 @@
 import { ActivatedRouteSnapshot, ResolveFn, RouterStateSnapshot } from '@angular/router';
 import { inject } from '@angular/core';
 
-import { BlogPost } from '@/shared/types/blog.interface';
+import { BlogPostMetaData } from '@/shared/types/blog.interface';
 import { BlogService } from '@/shared/services/blog.service';
 
-export const BlogResolver: ResolveFn<BlogPost[]> = (
+export const BlogResolver: ResolveFn<BlogPostMetaData[]> = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot,
   blogService: BlogService = inject(BlogService)
-): Promise<BlogPost[]> => {
-  return blogService.getAllPosts();
+): Promise<BlogPostMetaData[]> => {
+  return blogService.getAllBlogPostMetaData();
 };

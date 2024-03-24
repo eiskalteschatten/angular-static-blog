@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { environment } from '@environment';
 
-import { BlogPost } from '@/shared/types/blog.interface';
+import { BlogPostMetaData } from '@/shared/types/blog.interface';
 import { PageTitleComponent } from '@/shared/components/page-title/page-title.component';
 import { ContentTileData } from '@/shared/types/content.interface';
 import { ContentTileHorizontalComponent } from '@/shared/components/content-tile-horizontal/content-tile-horizontal.component';
@@ -15,7 +14,7 @@ import { ContentTileHorizontalComponent } from '@/shared/components/content-tile
   styleUrl: './blog.component.scss',
 })
 export class BlogComponent implements OnInit {
-  posts: BlogPost[] = [];
+  posts: BlogPostMetaData[] = [];
 
   constructor(
     private activedRoute: ActivatedRoute
@@ -31,9 +30,9 @@ export class BlogComponent implements OnInit {
     return this.posts.map((post) => ({
       title: post.title,
       excerpt: post.excerpt,
-      image: post.featuredImage ? `${environment.directus.url}/assets/${post.featuredImage}` : undefined,
-      link: `/blog/${post.slug}`,
-      date: new Date(post.date_published),
+      image: post.titleImage,
+      link: `/blog/${post.id}`,
+      date: new Date(post.publishedDate),
     }));
   }
 }
