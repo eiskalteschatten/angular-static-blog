@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { BlogPost, BlogPostMetaData, BlogCategory } from '@/shared/types/blog.interface';
+import { BlogPostMetaData, BlogCategory } from '@/shared/types/blog.interface';
 import blogPostIds from '@/data/blog/posts';
 
 
@@ -21,10 +21,9 @@ export class BlogService {
     return allPostsData;
   }
 
-  async getSinglePost(slug: string): Promise<BlogPost | undefined> {
-    console.log('slug', slug);
-    return undefined;
-    // return blogPost;
+  async getSinglePostMetaData(id: string): Promise<BlogPostMetaData | undefined> {
+    const metaData = await import (`../../data/blog/posts/${id}/meta.json`);
+    return metaData;
   }
 
   async getAllCategories(): Promise<BlogCategory[]> {

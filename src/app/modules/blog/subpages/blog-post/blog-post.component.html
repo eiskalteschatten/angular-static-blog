@@ -3,13 +3,13 @@
 }
 @else {
   <main class="container mx-auto header-gap">
-    <app-page-title>{{ post.metaData.title }}</app-page-title>
+    <app-page-title>{{ post.title }}</app-page-title>
 
-    @if (post.metaData.titleImage) {
+    @if (post.titleImage) {
       <img
         class="w-full h-96 object-cover object-center rounded-lg"
-        [src]="post.metaData.titleImage"
-        [alt]="post.metaData.title"
+        [src]="post.titleImage"
+        [alt]="post.title"
       />
     }
 
