@@ -5,6 +5,7 @@ import { BlogPostMetaData } from '@/shared/types/blog.interface';
 import { PageTitleComponent } from '@/shared/components/page-title/page-title.component';
 import { ContentTileData } from '@/shared/types/content.interface';
 import { ContentTileHorizontalComponent } from '@/shared/components/content-tile-horizontal/content-tile-horizontal.component';
+import { TitleService } from '@/shared/services/title.service';
 
 @Component({
   selector: 'app-blog',
@@ -17,10 +18,13 @@ export class BlogComponent implements OnInit {
   posts: BlogPostMetaData[] = [];
 
   constructor(
-    private activedRoute: ActivatedRoute
+    private activedRoute: ActivatedRoute,
+    private titleService: TitleService
   ) {}
 
   ngOnInit() {
+    this.titleService.setTitle('Blog');
+
     this.activedRoute.data.subscribe(({ posts }) => {
       this.posts = posts;
     });
