@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { BlogPostMetaData, BlogCategory, BlogPost } from '@/shared/types/blog.interface';
 import blogPostIds from '@/data/blog/posts';
 
-
 @Injectable({
   providedIn: 'root',
 })
